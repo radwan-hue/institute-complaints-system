@@ -41,12 +41,12 @@ const ADMIN_KEY = 'hirstr_admin_creds';
 const DEFAULT_ADMIN = { email: 'admin@histr.edu.ly', password: 'admin123' };
 
 const DEFAULT_SETTINGS = {
-  instituteName: 'المعهد العالي لعلوم والتقنية',
+  instituteName: 'المعهد العالي لللللللعلوم والتقنية',
   subTitle: 'رقدالين - منظومة الشكاوي',
   logoUrl: '',
   heroBgImageUrl: '',
   heroTitle: 'صوتكم مسموع، وخدمتكم غايتنا',
-  heroDesc: 'نلتزم في المعهد العالي لعلوم والتقنية رقدالين بتوفير بيئة تعليمية وإدارية متميزة. استخدم هذه المنظومة لتقديم شكواك أو ملاحظاتك بكل سهولة وشفافية.',
+  heroDesc: 'نلتزم في المعهد العالي للللللعلوم والتقنية رقدالين بتوفير بيئة تعليمية وإدارية متميزة. استخدم هذه المنظومة لتقديم شكواك أو ملاحظاتك بكل سهولة وشفافية.',
   contactEmail: 'complaints@histr.edu.ly',
   contactPhone: '021-XXX-XXXX',
   contactAddress: 'رقدالين، ليبيا - مبنى الإدارة العامة، الطابق الأول',
@@ -1779,20 +1779,9 @@ const saveToCloud = async (data: any) => {
     try {
       setSettings(newSettings);
       localStorage.setItem(SETTINGS_KEY, JSON.stringify(newSettings));
-       try {
-    setSettings(newSettings);
-    localStorage.setItem(SETTINGS_KEY, JSON.stringify(newSettings));
-    
-    // إضافة كود كاشف للأخطاء هنا
-    console.log("جاري محاولة الحفظ في السحابة...");
-    await saveToCloud(newSettings);
-    console.log("تم الحفظ في السحابة بنجاح!");
-    
-    toast.success('تم حفظ إعدادات المنظومة بنجاح', { style: { fontFamily: 'Tajawal' } });
-} catch (e) {
-    console.error("خطأ كارثي عند الحفظ في السحابة:", e);
-    toast.error('فشل الحفظ في السحابة، راجع الكونسول');
-}
+      toast.success('تم حفظ إعدادات للللعلوم بنجاح', { style: { fontFamily: 'Tajawal' } });
+      await saveToCloud(newSettings);
+    } catch (e) {
       console.error('Save failed', e);
       toast.error('فشل حفظ الإعدادات: قد تكون الصور المرفوعة كبيرة جداً. يرجى اختيار صور أصغر.', { 
         style: { fontFamily: 'Tajawal' },
