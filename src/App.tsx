@@ -1779,9 +1779,20 @@ const saveToCloud = async (data: any) => {
     try {
       setSettings(newSettings);
       localStorage.setItem(SETTINGS_KEY, JSON.stringify(newSettings));
-      toast.success('تم حفظ إعدادات المنظومة بنجاح', { style: { fontFamily: 'Tajawal' } });
-      await saveToCloud(newSettings);
-    } catch (e) {
+       try {
+    setSettings(newSettings);
+    localStorage.setItem(SETTINGS_KEY, JSON.stringify(newSettings));
+    
+    // إضافة كود كاشف للأخطاء هنا
+    console.log("جاري محاولة الحفظ في السحابة...");
+    await saveToCloud(newSettings);
+    console.log("تم الحفظ في السحابة بنجاح!");
+    
+    toast.success('تم حفظ إعدادات المنظومة بنجاح', { style: { fontFamily: 'Tajawal' } });
+} catch (e) {
+    console.error("خطأ كارثي عند الحفظ في السحابة:", e);
+    toast.error('فشل الحفظ في السحابة، راجع الكونسول');
+}
       console.error('Save failed', e);
       toast.error('فشل حفظ الإعدادات: قد تكون الصور المرفوعة كبيرة جداً. يرجى اختيار صور أصغر.', { 
         style: { fontFamily: 'Tajawal' },
