@@ -53,7 +53,7 @@ const DEFAULT_SETTINGS = {
   officeImageUrl: '',
   firebaseUrl: 'https://rig-system-af597-default-rtdb.firebaseio.com/',
   projectStudents: 'اسم الطالب 1، اسم الطالب 2، اسم الطالب 3',
-  projectSupervisor: 'الأستاذ الفاضل / ...',
+  projectSupervisor: 'الأستاذ الفاضل / مولود رمضان محمد قريبع',
   projectSemester: 'فصل الربيع 2026'
 };
 
